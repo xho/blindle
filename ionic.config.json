@@ -1,0 +1,7 @@
+{
+  "name": "parolette-alla-cecata",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
