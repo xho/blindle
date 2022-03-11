@@ -21,7 +21,7 @@ export const MESSAGES = {
         letters: ' lettere ',
         theWord: ' la parola ',
         insertedOnly: ' hai inserito solo ',
-        iRepeat: ' ripeto, per la parola ',
+        iRepeat: ' ripeto il risultato, per la parola ',
         retry: ' prova di nuovo ',
         ended: ' mi dispiace, hai esaurito i tentativi ',
         repeat: ' ripeti ',

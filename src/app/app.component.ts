@@ -57,7 +57,7 @@ export class AppComponent implements AfterViewInit {
     return;
    }
 
-   const pattern = /^[a-z]+$/i;
+   const pattern = /^[A-zÀ-ÿ]+$/i;
    const result = pattern.test(e.key);
    if (!result) {
     this.speakService.speak(e.key);
@@ -95,15 +95,16 @@ export class AppComponent implements AfterViewInit {
       this.speakService.speak(MESSAGES.statuses[status.key]);
     });
 
-    if (this.currentWord.toLowerCase() !== this.wordsService.getSolution()) {
+    if (this.wordsService.isWinningWord(this.currentWord)) {
+      this.updateGuesses(statuses);
+      this.endMessage = MESSAGES.var.successEnd;
+      this.speakService.speak(MESSAGES.var.successEnd);
+      return;
+    } else {
       this.speakService.repeat(this.currentWord, statuses);
       if (this.guesses.length < this.attempts) {
         this.speakService.speak(MESSAGES.var.retry);
       }
-    } else {
-      this.updateGuesses(statuses);
-      this.endMessage = MESSAGES.var.successEnd;
-      return;
     }
 
     // END OR CONTINUE

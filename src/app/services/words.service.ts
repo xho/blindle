@@ -17,9 +17,9 @@ export class WordsService {
     return this.solution;
   }
 
-  public isWordInDictionary = (word: string) => WORDS.includes( word.toLowerCase() );
+  public isWordInDictionary = (word: string) => WORDS.includes( word.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') );
 
-  public isWinningWord = (word: string) => this.solution === word;
+  public isWinningWord = (word: string) => this.solution === word.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
   public testWord = (word: string): Array<{ letter: string; key: string }> => {
     const splitSolution = this.solution.split('');
