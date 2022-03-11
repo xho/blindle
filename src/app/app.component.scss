@@ -17,3 +17,13 @@ ion-input {
         gap: .25rem;
     }
 }
+
+.end-message {
+    ion-item {
+        @media (prefers-color-scheme: light) {
+            --padding-start: 0;
+        }
+        font-size: 2rem;
+        font-weight: 700;
+    }
+}

@@ -26,9 +26,9 @@
                 </ion-item>
             </div>
 
-            <section class="mt-2" *ngIf="endMessage">
-                <ion-item>
-                    <ion-label [color]="guesses[guesses.length - 1].status == 'correct'? 'warning' : ''">{{ endMessage }}</ion-label>
+            <section class="mt-2 end-message" *ngIf="endMessage">
+                <ion-item lines="none">
+                    <ion-label class="ion-text-capitalize" [color]="guesses[guesses.length - 1].status == 'correct'? 'success' : ''">{{ endMessage }}</ion-label>
                 </ion-item>
             </section>
 

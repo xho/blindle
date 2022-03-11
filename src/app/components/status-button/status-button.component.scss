@@ -26,6 +26,9 @@ ion-button {
         height: 8px;
         &.absent {
             background-color: #fff;
+            @media (prefers-color-scheme: light) {
+                background-color: #222428;
+            }
         }
         &.present {
             background-color: #ffd534;
