@@ -57,7 +57,7 @@ export const SOLUTIONS = [
   'mafia',
   'atrio',
   'peone',
-  'mozzo',
+  'aglio',
   'aglio',
   'palmo',
   'apice',
