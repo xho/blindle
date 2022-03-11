@@ -21,13 +21,14 @@ export class AppComponent implements AfterViewInit {
   public currentWord = '';
   public guesses = [];
   public guessesStatuses = [];
-  private attempts = 5;
+  public attempts = 5;
+  public endMessage = '';
 
   constructor(
     private toastController: ToastController,
     private speakService: SpeakService,
     private wordsService: WordsService,
-    private messageService: MessageService,
+    public messageService: MessageService,
   ) {
 
   }
@@ -69,6 +70,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   public async try() {
+    // too short
     if (this.currentWord.length < 5) {
       this.speakService.speak(MESSAGES.errors.wordIsNotComplete);
       this.speakService.speak(MESSAGES.var.insertedOnly + this.currentWord.length + MESSAGES.var.letters);
@@ -77,6 +79,7 @@ export class AppComponent implements AfterViewInit {
 
     this.speakService.speak(this.currentWord);
 
+    // NOT IN DICTIONARY
     if (!this.wordsService.isWordInDictionary(this.currentWord)) {
       this.speakService.speak(MESSAGES.var.theWord + this.currentWord);
       await this.speakService.speak(MESSAGES.errors.notInDictionary);
@@ -84,6 +87,7 @@ export class AppComponent implements AfterViewInit {
       return;
     }
 
+    // OK HOW IS GONE?
     const statuses = this.wordsService.testWord(this.currentWord);
     statuses.forEach(status => {
       this.speakService.speak(MESSAGES.var.letter);
@@ -91,27 +95,24 @@ export class AppComponent implements AfterViewInit {
       this.speakService.speak(MESSAGES.statuses[status.key]);
     });
 
-    if (this.currentWord.toLowerCase() === this.wordsService.getSolution()) {
-      this.speakService.speak('Bravo');
-    } else {
-      this.repeat(this.currentWord, statuses);
-
+    if (this.currentWord.toLowerCase() !== this.wordsService.getSolution()) {
+      this.speakService.repeat(this.currentWord, statuses);
       if (this.guesses.length < this.attempts) {
         this.speakService.speak(MESSAGES.var.retry);
-      } else {
-        this.speakService.speak('Acciderba!');
-        this.speakService.speak(MESSAGES.var.ended);
       }
+    } else {
+      this.updateGuesses(statuses);
+      this.endMessage = MESSAGES.var.successEnd;
+      return;
     }
 
+    // END OR CONTINUE
     this.updateGuesses(statuses);
-  }
-
-  public repeat(word: string, statuses: Array<any>) {
-    this.speakService.speak(MESSAGES.var.iRepeat + word);
-    statuses.forEach(status => {
-      this.speakService.speak(MESSAGES.statuses[status.key]);
-    });
+    if (this.guesses.length === this.attempts) {
+      this.speakService.speak(MESSAGES.interjections.ouch);
+      this.speakService.speak(MESSAGES.var.ended);
+      this.endMessage = MESSAGES.var.failEnd;
+    }
   }
 
   private updateGuesses(statuses) {
@@ -134,7 +135,7 @@ export class AppComponent implements AfterViewInit {
       const target = e.target as HTMLInputElement;
       if (!target.type) {
         setTimeout(() => {
-          this.ionInput.setFocus();
+          this.ionInput?.setFocus();
         }, 300);
       }
     });

@@ -8,7 +8,7 @@ export class MessageService {
 
   constructor() { }
 
-  get(key: string, index?: number) {
+  get(key: string, index?: number|string) {
       if (typeof index !== 'undefined') {
           return MESSAGES[key][index];
       }

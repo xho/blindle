@@ -6,14 +6,14 @@
         </ion-toolbar>
         </ion-header>
 
-        <div class="main-container">
+        <main class="main-container">
             <section class="mt-1">
                 <ion-note color="white">
                     In questo gioco devi indovinare una parola di cinque lettere in cinque tentativi.
                 </ion-note>
             </section>
 
-            <div class="mt-2">
+            <div class="mt-2" *ngIf="guesses.length < attempts && !endMessage">
                 <ion-item>
                     <ion-label position="floating" [innerHTML]="messageService.get('inputLabels', guesses.length)"></ion-label>
                     <ion-input placeholder="es. lotta" type="text"
@@ -26,10 +26,16 @@
                 </ion-item>
             </div>
 
-            <section class="mt-2 results" *ngIf="guesses.length">
+            <section class="mt-2" *ngIf="endMessage">
+                <ion-item>
+                    <ion-label [color]="guesses[guesses.length - 1].status == 'correct'? 'warning' : ''">{{ endMessage }}</ion-label>
+                </ion-item>
+            </section>
+
+            <section class="mt-2" *ngIf="guesses.length">
                 <h2>Riassunto tentativi</h2>
 
-                <div class="attempt-report">
+                <div class="results">
                     <div *ngFor="let guess of guesses; index as i;">
                         <app-status-button
                             [guess]="guess"
@@ -49,6 +55,6 @@
                 <ion-note color="dark" class="block">Blindle non usa cookie</ion-note>
                 <ion-note class="block">2022 MIT lic. - Blindle è un progetto open source da <a href="https://twitter.com/xho" target="_blank">@xho</a></ion-note>
             </section>
-        </div>
+        </main>
     </ion-content>
 </ion-app>

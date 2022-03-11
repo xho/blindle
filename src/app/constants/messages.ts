@@ -25,12 +25,18 @@ export const MESSAGES = {
         retry: ' prova di nuovo ',
         ended: ' mi dispiace, hai esaurito i tentativi ',
         repeat: ' ripeti ',
+        successEnd: ' Hai vinto, evviva!',
+        failEnd: ' Hai perso, spiaze…',
     },
 
     statuses: {
         absent: ' assente ',
         present: ' presente ',
         correct: ' corretta ',
+    },
+
+    interjections: {
+        ouch: ' Acciderba! ',
     }
 
 };

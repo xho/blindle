@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SpeakService } from '../../services/speak.service';
 
 @Component({
   selector: 'app-status-button',
@@ -11,12 +12,14 @@ export class StatusButtonComponent implements OnInit {
   @Input() status: any;
   @Input() title: string;
 
-  constructor() { }
+  constructor(
+    private speakService: SpeakService,
+  ) { }
 
   ngOnInit() {}
 
   public repeat() {
-    console.log(1);
+    this.speakService.repeat(this.guess.word, this.status);
   }
 
   public color(status?: string) {

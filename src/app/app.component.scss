@@ -1,19 +1,19 @@
+section {
+    @media (min-width: 768px) {
+        padding: 0 1rem;
+    }
+}
+
 ion-input {
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 
-.attempt-report {
+.results {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: .5rem;
     @media (max-width: 520px) {
         gap: .25rem;
-    }
-}
-
-section {
-    @media (min-width: 768px) {
-        padding: 0 1rem;
     }
 }
