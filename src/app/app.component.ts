@@ -21,7 +21,7 @@ export class AppComponent implements AfterViewInit {
   public currentWord = '';
   public guesses = [];
   public guessesStatuses = [];
-  public attempts = 5;
+  public attempts = 6;
   public endMessage = '';
 
   constructor(

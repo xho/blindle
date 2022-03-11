@@ -33,7 +33,7 @@ ion-item {
 
 .results {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: .5rem;
     @media (max-width: 520px) {
         gap: .25rem;

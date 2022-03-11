@@ -9,7 +9,7 @@
         <main class="main-container">
             <section class="mt-1">
                 <ion-note color="white">
-                    In questo gioco devi indovinare una parola di cinque lettere in cinque tentativi.
+                    In questo gioco devi indovinare una parola di cinque lettere in sei tentativi.
                 </ion-note>
             </section>
 
@@ -43,6 +43,10 @@
                             [title]="messageService.get('var', 'repeat')"></app-status-button>
                     </div>
                 </div>
+
+                <div>
+                    <ion-note>Puoi riascoltare il risultato pigiando su ciascun pulsante</ion-note>
+                </div>
             </section>
 
             <section class="mt-2">
@@ -51,7 +55,7 @@
                 </ion-note>
 
                 <!-- ONLY ON IOS -->
-                <div class="ion-text-sm note" *ngIf="platform.is('ios')">
+                <div class="note" *ngIf="platform.is('ios')">
                     <ion-text color="warning">
                         Nota: sui dispositivi Apple, la lingua della sintesi vocale non puà essere impostata in italiano se quella di sistema è differente.
                     </ion-text>

@@ -1,18 +1,15 @@
 ion-button {
-    min-height: 4rem;
+    min-height: 3rem;
     @media (min-width: 520px) {
-        min-height: 7rem;
+        min-height: 5.5rem;
     }
 
     font-weight: 700;
-    &.present {
-        background-color: yellow;
-    }
 }
 
 @media (max-width: 520px) {
     ion-button {
-        font-size: .875rem;
+        font-size: .75rem;
         --padding-start: .125rem;
         --padding-end: .125rem;
     }
