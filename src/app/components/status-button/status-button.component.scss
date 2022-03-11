@@ -1,5 +1,9 @@
 ion-button {
     min-height: 4rem;
+    @media (min-width: 520px) {
+        min-height: 7rem;
+    }
+
     font-weight: 700;
     &.present {
         background-color: yellow;
@@ -8,7 +12,7 @@ ion-button {
 
 @media (max-width: 520px) {
     ion-button {
-        font-weight: .75rem;
+        font-size: .875rem;
         --padding-start: .125rem;
         --padding-end: .125rem;
     }
@@ -31,7 +35,7 @@ ion-button {
             }
         }
         &.present {
-            background-color: #ffd534;
+            background-color: #eb445a;
         }
         &.correct {
             background-color: #2fdf75;

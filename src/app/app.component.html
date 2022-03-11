@@ -13,7 +13,7 @@
                 </ion-note>
             </section>
 
-            <div class="mt-2" *ngIf="guesses.length < attempts && !endMessage">
+            <div class="word-input" *ngIf="guesses.length < attempts && !endMessage">
                 <ion-item>
                     <ion-label position="floating" [innerHTML]="messageService.get('inputLabels', guesses.length)"></ion-label>
                     <ion-input placeholder="es. lotta" type="text"

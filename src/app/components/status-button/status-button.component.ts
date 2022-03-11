@@ -27,7 +27,7 @@ export class StatusButtonComponent implements OnInit {
       return 'success';
     }
     if (status === 'present') {
-      return 'warning';
+      return 'danger';
     }
 
     return 'dark';
