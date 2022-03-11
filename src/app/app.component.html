@@ -1,3 +1,58 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+    <ion-content>
+        <ion-header collapse="fade" [translucent]="true" class="ion-no-border">
+        <ion-toolbar>
+            <ion-title>BLINDLE</ion-title>
+        </ion-toolbar>
+        </ion-header>
+
+        <div class="main-container">
+            <section class="mt-1">
+                <ion-note color="white">
+                    In questo gioco devi indovinare una parola di cinque lettere in cinque tentativi.
+                </ion-note>
+            </section>
+
+            <div class="mt-2">
+                <ion-item>
+                    <ion-label position="floating" [innerHTML]="getMessage('inputLabels', guesses.length)"></ion-label>
+                    <ion-input placeholder="es. lotta" type="text"
+                        minlength="5"
+                        maxlength="5"
+                        autofocus="true"
+                        (keypress)="onKeyPress($event)"
+                        [(ngModel)]="currentWord"
+                        #myInput></ion-input>
+                </ion-item>
+            </div>
+
+            <section class="mt-2 results" *ngIf="guesses.length">
+                <h2>Riassunto tentativi</h2>
+                <div class="attempt-report">
+                    <div *ngFor="let guess of guesses; index as i;">
+                        <ion-button [color]="color(guess.status)" expand="full"
+                            [title]="getMessage('var', 'repeat')"
+                            (click)='repeat(guess.word, guessesStatuses[i])'>
+                            {{ guess.word }}
+                        </ion-button>
+
+                        <div class="row">
+                            <span class="cell" [class]="letter.key" *ngFor="let letter of guessesStatuses[i]; index as j;"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-2">
+                <ion-note color="white">
+                    Blindle è un'implementazione del gioco “parolette” per ipovedenti e non vedenti: l'inserimento della parola e i suggerimenti per trovare la soluzione sono pronunciati da un sistema di sintesi vocale (quindi alza il volume).
+                </ion-note>
+            </section>
+
+            <section class="mt-2">
+                <ion-note color="dark" class="block">Blindle non usa cookie</ion-note>
+                <ion-note class="block">2022 MIT lic. - Blindle è un progetto open source da <a href="https://twitter.com/xho">@xho</a></ion-note>
+            </section>
+        </div>
+    </ion-content>
 </ion-app>

@@ -1,0 +1,33 @@
+ion-input {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.attempt-report {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: .5rem;
+
+    ion-button {
+        min-height: 4rem;
+        font-weight: 700;
+        &.present {
+            background-color: yellow;
+        }
+    }
+
+    @media (max-width: 520px) {
+        gap: .25rem;
+        ion-button {
+            font-weight: .75rem;
+            --padding-start: .125rem;
+            --padding-end: .125rem;
+        }
+    }
+}
+
+section {
+    @media (min-width: 768px) {
+        padding: 0 1rem;
+    }
+}

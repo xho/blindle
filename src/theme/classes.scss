@@ -1,0 +1,33 @@
+.main-container {
+    margin: 0 auto;
+    max-width: 40rem;
+    padding: 1.5rem 1rem;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    .cell {
+        width: 8px;
+        height: 8px;
+        &.absent {
+            background-color: #fff;
+        }
+        &.present {
+            background-color: yellow;
+        }
+        &.correct {
+            background-color: green;
+        }
+    }
+}
+
+
+.block {
+    display: block;
+}
+
+.my-2 { margin-top: 2rem; margin-bottom: 2rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-2 { margin-top: 2rem; }
