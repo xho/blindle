@@ -15,6 +15,12 @@ ion-item {
     }
 }
 
+.ios ion-item {
+    @media (max-width: 768px) {
+        --padding-start: 0;
+    }
+}
+
 .word-input {
     margin-top: 1.5rem;
     @media (min-width: 768px) {
