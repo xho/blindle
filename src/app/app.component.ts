@@ -2,7 +2,8 @@ import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { IonInput, ToastController } from '@ionic/angular';
 import { SpeakService } from './services/speak.service';
 import { WordsService } from './services/words.service';
-import { GuessService } from './services/guess.service';
+import { MessageService } from './services/message.service';
+// import { GuessService } from './services/guess.service';
 
 import { MESSAGES } from './constants/messages';
 
@@ -26,8 +27,10 @@ export class AppComponent implements AfterViewInit {
     private toastController: ToastController,
     private speakService: SpeakService,
     private wordsService: WordsService,
-    private guessService: GuessService,
-  ) {}
+    private messageService: MessageService,
+  ) {
+
+  }
 
   async ngAfterViewInit(): Promise<void> {
     this.ionInput.setFocus();
@@ -109,25 +112,6 @@ export class AppComponent implements AfterViewInit {
     statuses.forEach(status => {
       this.speakService.speak(MESSAGES.statuses[status.key]);
     });
-  }
-
-  public getMessage(key: string, index?: number) {
-    if (typeof index !== 'undefined') {
-      return MESSAGES[key][index];
-    }
-
-    return MESSAGES[key];
-  }
-
-  public color(status?: string) {
-    if (status === 'correct') {
-      return 'success';
-    }
-    if (status === 'present') {
-      return 'warning';
-    }
-
-    return 'dark';
   }
 
   private updateGuesses(statuses) {

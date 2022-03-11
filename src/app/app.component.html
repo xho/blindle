@@ -15,7 +15,7 @@
 
             <div class="mt-2">
                 <ion-item>
-                    <ion-label position="floating" [innerHTML]="getMessage('inputLabels', guesses.length)"></ion-label>
+                    <ion-label position="floating" [innerHTML]="messageService.get('inputLabels', guesses.length)"></ion-label>
                     <ion-input placeholder="es. lotta" type="text"
                         minlength="5"
                         maxlength="5"
@@ -28,17 +28,13 @@
 
             <section class="mt-2 results" *ngIf="guesses.length">
                 <h2>Riassunto tentativi</h2>
+
                 <div class="attempt-report">
                     <div *ngFor="let guess of guesses; index as i;">
-                        <ion-button [color]="color(guess.status)" expand="full"
-                            [title]="getMessage('var', 'repeat')"
-                            (click)='repeat(guess.word, guessesStatuses[i])'>
-                            {{ guess.word }}
-                        </ion-button>
-
-                        <div class="row">
-                            <span class="cell" [class]="letter.key" *ngFor="let letter of guessesStatuses[i]; index as j;"></span>
-                        </div>
+                        <app-status-button
+                            [guess]="guess"
+                            [status]="guessesStatuses[i]"
+                            [title]="messageService.get('var', 'repeat')"></app-status-button>
                     </div>
                 </div>
             </section>
@@ -51,7 +47,7 @@
 
             <section class="mt-2">
                 <ion-note color="dark" class="block">Blindle non usa cookie</ion-note>
-                <ion-note class="block">2022 MIT lic. - Blindle è un progetto open source da <a href="https://twitter.com/xho">@xho</a></ion-note>
+                <ion-note class="block">2022 MIT lic. - Blindle è un progetto open source da <a href="https://twitter.com/xho" target="_blank">@xho</a></ion-note>
             </section>
         </div>
     </ion-content>

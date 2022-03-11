@@ -1,0 +1,9 @@
+<ion-button [color]="color(guess.status)" expand="full" class="ion-no-margin"
+    [title]="title"
+    (click)='repeat(guess.word, status)'>
+    {{ guess.word }}
+</ion-button>
+
+<div class="row">
+    <span class="cell" [class]="letter.key" *ngFor="let letter of status; index as j;"></span>
+</div>

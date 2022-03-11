@@ -1,0 +1,37 @@
+ion-button {
+    min-height: 4rem;
+    font-weight: 700;
+    &.present {
+        background-color: yellow;
+    }
+}
+
+@media (max-width: 520px) {
+    ion-button {
+        font-weight: .75rem;
+        --padding-start: .125rem;
+        --padding-end: .125rem;
+    }
+    .row {
+        justify-content: center;
+    }
+}
+
+.row {
+    display: flex;
+    gap: 4px;
+    margin-top: 4px;
+    .cell {
+        width: 8px;
+        height: 8px;
+        &.absent {
+            background-color: #fff;
+        }
+        &.present {
+            background-color: #ffd534;
+        }
+        &.correct {
+            background-color: #2fdf75;
+        }
+    }
+}
