@@ -16,6 +16,9 @@ ion-item {
 }
 
 .ios ion-item {
+    ion-label {
+        --color: #3880ff;
+    }
     @media (max-width: 768px) {
         --padding-start: 0;
     }

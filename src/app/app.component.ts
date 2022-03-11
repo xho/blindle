@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
-import { IonInput, ToastController } from '@ionic/angular';
+import { IonInput, ToastController, Platform } from '@ionic/angular';
 import { SpeakService } from './services/speak.service';
 import { WordsService } from './services/words.service';
 import { MessageService } from './services/message.service';
@@ -29,6 +29,7 @@ export class AppComponent implements AfterViewInit {
     private speakService: SpeakService,
     private wordsService: WordsService,
     public messageService: MessageService,
+    public platform: Platform,
   ) {
 
   }
