@@ -81,7 +81,7 @@ export class WordsService {
     return statuses;
   };
 
-  public solutionMeta() {
+  public getSolutionMeta() {
     return {
       date: format(this.currentDate, 'd MMMM yyyy', { locale: it }),
       index: this.getTodayIndex() + 1,

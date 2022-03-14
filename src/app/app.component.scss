@@ -1,3 +1,10 @@
+ion-toolbar {
+    --min-height: 64px;
+    ion-note {
+        display: block;
+    }
+}
+
 section {
     @media (min-width: 768px) {
         padding: 0 1rem;

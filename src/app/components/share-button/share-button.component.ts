@@ -47,9 +47,9 @@ export class ShareButtonComponent implements OnInit {
 
   private shareText() {
     const success = this.guesses[this.guesses.length - 1].status === 'correct';
-    let text = `Blindle ${this.wordsService.solutionMeta().index} ` + (success? this.guesses.length : 'x') + '/6';
+    let text = `Blindle ${this.wordsService.getSolutionMeta().index} ` + (success? this.guesses.length : 'x') + '/6';
     text += `\n(parolette alla cecata)`;
-    text += `\n${this.wordsService.solutionMeta().date}\n\n`;
+    text += `\n${this.wordsService.getSolutionMeta().date}\n\n`;
 
     this.guessesStatuses.forEach(guess => {
       guess.forEach((entry: any, i: number) => {

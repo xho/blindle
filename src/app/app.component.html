@@ -1,9 +1,12 @@
 <ion-app>
     <ion-content>
         <ion-header collapse="fade" [translucent]="true" class="ion-no-border">
-        <ion-toolbar>
-            <ion-title>BLINDLE</ion-title>
-        </ion-toolbar>
+            <ion-toolbar>
+                <ion-title>
+                    BLINDLE
+                    <ion-note>#{{ wordsService.getSolutionMeta().index }} • {{ wordsService.getSolutionMeta().date }}</ion-note>
+                </ion-title>
+            </ion-toolbar>
         </ion-header>
 
         <main class="main-container">

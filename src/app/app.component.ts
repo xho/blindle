@@ -32,7 +32,7 @@ export class AppComponent implements AfterViewInit {
   constructor(
     private toastController: ToastController,
     private speakService: SpeakService,
-    private wordsService: WordsService,
+    public wordsService: WordsService,
     public messageService: MessageService,
     public platform: Platform,
   ) {
