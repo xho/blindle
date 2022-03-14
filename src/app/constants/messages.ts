@@ -23,7 +23,7 @@ export const MESSAGES = {
         insertedOnly: ' hai inserito solo ',
         iRepeat: ' ripeto il risultato, per la parola ',
         retry: ' prova di nuovo ',
-        ended: ' mi dispiace, hai esaurito i tentativi ',
+        ended: ' hai esaurito i tentativi e hai perso ',
         repeat: ' ripeti ',
         successEnd: ' Evviva, hai vinto!',
         failEnd: ' Hai perso, spiaze…',
