@@ -33,19 +33,19 @@
             </section>
 
             <section class="mt-2 letters-buttons" *ngIf="guesses.length">
-                <ion-button color="primary" size="small" class="ion-no-margin"
+                <ion-button color="primary" size="small" class="m-0"
                     [title]="messageService.get('var', 'absentLettersSummary')"
                     [disabled]="!letterStatuses['absent'].length"
                     (click)="speakLettersByStatus('absent')">
                     <span class="ion-hide-sm-down">{{ messageService.get('var', 'letters') }}&nbsp;</span> {{ messageService.get('var', 'absents') }}
                 </ion-button>
-                <ion-button color="primary" size="small" class="ion-no-margin"
+                <ion-button color="primary" size="small" class="m-0"
                     [title]="messageService.get('var', 'presentLettersSummary')"
                     [disabled]="!letterStatuses['present'].length"
                     (click)="speakLettersByStatus('present')">
                     <span class="ion-hide-sm-down">{{ messageService.get('var', 'letters') }}&nbsp;</span> {{ messageService.get('var', 'presents') }}
                 </ion-button>
-                <ion-button color="primary" size="small" class="ion-no-margin"
+                <ion-button color="primary" size="small" class="m-0"
                     [title]="messageService.get('var', 'correctLettersSummary')"
                     [disabled]="!letterStatuses['correct'].length"
                     (click)="speakLettersByStatus('correct')">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="mt-05">
                     <ion-note>Puoi riascoltare il risultato pigiando su ciascun pulsante</ion-note>
                 </div>
             </section>
