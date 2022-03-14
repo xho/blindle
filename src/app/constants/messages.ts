@@ -31,11 +31,11 @@ export const MESSAGES = {
         presents: ' presenti ',
         corrects: ' corrette ',
         absentLettersSummary: ' Riepilogo lettere assenti ',
-        presentLettersSummary: ' Riepilogo lettere presenti ma fuori posizione ',
-        correctLettersSummary: ' Riepilogo lettere corrette ',
+        presentLettersSummary: ' Riepilogo lettere presenti ',
+        correctLettersSummary: ' Riepilogo lettere presenti e in posizione in uno dei tentativi ',
         absentLettersSummaryEmpty: ' la lista delle lettere assenti è vuota ',
         presentLettersSummaryEmpty: ' la lista delle lettere presenti è vuota ',
-        correctLettersSummaryEmpty: ' la lista delle lettere corrette è vuota ',
+        correctLettersSummaryEmpty: ' la lista delle lettere presenti e in posizione in almeno uno dei tentativi è vuota ',
     },
 
     statuses: {
