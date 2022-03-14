@@ -111,7 +111,7 @@ export class AppComponent implements AfterViewInit {
       return;
     } else {
       this.speakService.repeatWord(this.currentWord, statuses);
-      if (this.guesses.length < this.attempts) {
+      if (this.guesses.length < this.attempts - 1) {
         this.speakService.speak(MESSAGES.var.retry);
       }
     }
