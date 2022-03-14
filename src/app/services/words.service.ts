@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { WORDS } from '../constants/dictionary';
+import { WORDS } from '../constants/dictionary-full';
 import { SOLUTIONS } from '../constants/solutions';
 import { format } from 'date-fns';
 import { it } from 'date-fns/locale';
