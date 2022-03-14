@@ -25,7 +25,7 @@ export const MESSAGES = {
         retry: ' prova di nuovo ',
         ended: ' mi dispiace, hai esaurito i tentativi ',
         repeat: ' ripeti ',
-        successEnd: ' Hai vinto, evviva!',
+        successEnd: ' Evviva, hai vinto!',
         failEnd: ' Hai perso, spiaze…',
         absents: ' assenti ',
         presents: ' presenti ',

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { WORDS } from '../constants/dictionary';
 import { SOLUTIONS } from '../constants/solutions';
+import { format } from 'date-fns';
+import { it } from 'date-fns/locale';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,7 @@ export class WordsService {
 
   public isWinningWord = (word: string) => this.solution === word.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-  public testWord = (word: string): Array<{ letter: string; key: string }> => {
+  public testWord = (word: string): Array<{ letter: string; status: string }> => {
     const splitSolution = this.solution.split('');
     const splitWord = word.toLowerCase().split('');
     const solutionCharsTaken = splitSolution.map(_ => false);
@@ -32,7 +34,7 @@ export class WordsService {
       if (letter === splitSolution[i]) {
         statuses[i] = {
           letter,
-          key: 'correct',
+          status: 'correct',
         };
         solutionCharsTaken[i] = true;
         return;
@@ -48,7 +50,7 @@ export class WordsService {
       if (!splitSolution.includes(letter)) {
         statuses[i] = {
           letter,
-          key: 'absent',
+          status: 'absent',
         };
 
         return;
@@ -62,14 +64,14 @@ export class WordsService {
       if (indexOfPresentChar > -1) {
         statuses[i] = {
           letter,
-          key: 'present',
+          status: 'present',
         };
         solutionCharsTaken[indexOfPresentChar] = true;
         return;
       } else {
         statuses[i] = {
           letter,
-          key: 'absent',
+          status: 'absent',
         };
         return;
       }
@@ -80,7 +82,7 @@ export class WordsService {
 
   public solutionMeta() {
     return {
-      date: new Date().toLocaleString('it-IT'),
+      date: format(new Date(), 'd MMMM yyyy', { locale: it }),
       index: this.getTodayIndex() + 1,
       total: WORDS.length,
     };

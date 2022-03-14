@@ -47,8 +47,8 @@ export class SpeakService {
 
   public repeatWord(word: string, statuses: Array<any>) {
     this.speak(MESSAGES.var.iRepeat + word);
-    statuses.forEach(status => {
-      this.speak(MESSAGES.statuses[status.key]);
+    statuses.forEach(letterStatus => {
+      this.speak(MESSAGES.statuses[letterStatus.status]);
     });
   }
 

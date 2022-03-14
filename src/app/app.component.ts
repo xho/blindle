@@ -95,13 +95,13 @@ export class AppComponent implements AfterViewInit {
 
     // OK HOW IS GONE?
     const statuses = this.wordsService.testWord(this.currentWord);
-    statuses.forEach(status => {
+    statuses.forEach(letterStatus => {
       this.speakService.speak(MESSAGES.var.letter);
-      this.speakService.speak(status.letter);
-      this.speakService.speak(MESSAGES.statuses[status.key]);
-      if (!this.letterStatuses[status.key].includes(status.letter)) {
-        const l = status.letter.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        this.letterStatuses[status.key].push(l);
+      this.speakService.speak(letterStatus.letter);
+      this.speakService.speak(MESSAGES.statuses[letterStatus.status]);
+      if (!this.letterStatuses[letterStatus.status].includes(letterStatus.letter)) {
+        const l = letterStatus.letter.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        this.letterStatuses[letterStatus.status].push(l);
       }
     });
 
@@ -140,9 +140,9 @@ export class AppComponent implements AfterViewInit {
 
   private updateGuesses(statuses) {
     let wordStatus: string;
-    if (statuses.every(status => status.key === 'absent')) {
+    if (statuses.every(letterStatus => letterStatus.status === 'absent')) {
       wordStatus = 'absent';
-    } else if (statuses.every(status => status.key === 'correct')) {
+    } else if (statuses.every(letterStatus => letterStatus.status === 'correct')) {
       wordStatus = 'correct';
     } else {
       wordStatus = 'present';

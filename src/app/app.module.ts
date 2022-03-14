@@ -6,10 +6,11 @@ import { IonicModule } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { StatusButtonComponent } from './components/status-button/status-button.component';
+import { ShareButtonComponent } from './components/share-button/share-button.component';
 
 
 @NgModule({
-  declarations: [AppComponent, StatusButtonComponent],
+  declarations: [AppComponent, StatusButtonComponent, ShareButtonComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), FormsModule],
   providers: [

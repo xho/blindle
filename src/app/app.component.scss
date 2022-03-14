@@ -54,7 +54,16 @@ ion-item {
 }
 
 .end-message {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    @media (max-width: 520px) {
+        flex-direction: column;
+    }
     ion-item {
+        width: 100%;
+        text-align: center;
+        flex-grow: 1;
         font-size: 1.75rem;
         @media (min-width: 768px) {
             font-size: 2rem;

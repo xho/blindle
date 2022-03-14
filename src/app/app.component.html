@@ -30,6 +30,9 @@
                 <ion-item lines="none">
                     <ion-label class="ion-text-capitalize" [color]="guesses[guesses.length - 1].status == 'correct'? 'success' : ''">{{ endMessage }}</ion-label>
                 </ion-item>
+                <app-share-button
+                    [guessesStatuses]="guessesStatuses"
+                    [guesses]="guesses"></app-share-button>
             </section>
 
             <section class="mt-2 letters-buttons" *ngIf="guesses.length">
@@ -37,19 +40,25 @@
                     [title]="messageService.get('var', 'absentLettersSummary')"
                     [disabled]="!letterStatuses['absent'].length"
                     (click)="speakLettersByStatus('absent')">
-                    <span class="ion-hide-sm-down">{{ messageService.get('var', 'letters') }}&nbsp;</span> {{ messageService.get('var', 'absents') }}
+                    <span class="ion-hide-sm-down">{{ messageService.get('var', 'letters') }}&nbsp;</span>
+                    {{ messageService.get('var', 'absents') }}
+                    <span *ngIf="letterStatuses['absent'].length">&nbsp;({{ letterStatuses['absent'].length }})</span>
                 </ion-button>
                 <ion-button color="primary" size="small" class="m-0"
                     [title]="messageService.get('var', 'presentLettersSummary')"
                     [disabled]="!letterStatuses['present'].length"
                     (click)="speakLettersByStatus('present')">
-                    <span class="ion-hide-sm-down">{{ messageService.get('var', 'letters') }}&nbsp;</span> {{ messageService.get('var', 'presents') }}
+                    <span class="ion-hide-sm-down">{{ messageService.get('var', 'letters') }}&nbsp;</span>
+                    {{ messageService.get('var', 'presents') }}
+                    <span *ngIf="letterStatuses['present'].length">&nbsp;({{ letterStatuses['present'].length }})</span>
                 </ion-button>
                 <ion-button color="primary" size="small" class="m-0"
                     [title]="messageService.get('var', 'correctLettersSummary')"
                     [disabled]="!letterStatuses['correct'].length"
                     (click)="speakLettersByStatus('correct')">
-                    <span class="ion-hide-sm-down">{{ messageService.get('var', 'letters') }}&nbsp;</span> {{ messageService.get('var', 'corrects') }}
+                    <span class="ion-hide-sm-down">{{ messageService.get('var', 'letters') }}&nbsp;</span>
+                    {{ messageService.get('var', 'corrects') }}
+                    <span *ngIf="letterStatuses['correct'].length">&nbsp;({{ letterStatuses['correct'].length }})</span>
                 </ion-button>
             </section>
 
