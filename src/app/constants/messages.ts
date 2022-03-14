@@ -31,7 +31,7 @@ export const MESSAGES = {
         presents: ' presenti ',
         corrects: ' corrette ',
         absentLettersSummary: ' Riepilogo lettere assenti ',
-        presentLettersSummary: ' Riepilogo lettere presenti ',
+        presentLettersSummary: ' Riepilogo lettere presenti ma fuori posizione ',
         correctLettersSummary: ' Riepilogo lettere corrette ',
         absentLettersSummaryEmpty: ' la lista delle lettere assenti è vuota ',
         presentLettersSummaryEmpty: ' la lista delle lettere presenti è vuota ',
