@@ -12,7 +12,7 @@ export class ShareButtonComponent implements OnInit {
   @Input() guesses: Array<any>;
   @Input() guessesStatuses: Array<any>;
 
-  private isCopied = false;
+  public isCopied = false;
 
   constructor(
     private wordsService: WordsService,
