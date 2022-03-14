@@ -29,13 +29,10 @@ export const MESSAGES = {
         failEnd: ' Hai perso, spiaze…',
         absents: ' assenti ',
         presents: ' presenti ',
-        corrects: ' corrette ',
         absentLettersSummary: ' Riepilogo lettere assenti ',
         presentLettersSummary: ' Riepilogo lettere presenti ',
-        correctLettersSummary: ' Riepilogo lettere presenti e in posizione in uno dei tentativi ',
         absentLettersSummaryEmpty: ' la lista delle lettere assenti è vuota ',
         presentLettersSummaryEmpty: ' la lista delle lettere presenti è vuota ',
-        correctLettersSummaryEmpty: ' la lista delle lettere presenti e in posizione in almeno uno dei tentativi è vuota ',
     },
 
     statuses: {
