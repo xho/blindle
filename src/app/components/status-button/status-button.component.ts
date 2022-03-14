@@ -19,7 +19,7 @@ export class StatusButtonComponent implements OnInit {
   ngOnInit() {}
 
   public repeat() {
-    this.speakService.repeat(this.guess.word, this.status);
+    this.speakService.repeatWord(this.guess.word, this.status);
   }
 
   public color(status?: string) {

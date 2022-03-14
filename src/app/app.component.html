@@ -32,10 +32,25 @@
                 </ion-item>
             </section>
 
+            <section class="mt-2 letters-buttons" *ngIf="guesses.length">
+                <ion-button color="primary" size="small" class="ion-no-margin"
+                    (click)="speakLettersByStatus('absent')">
+                    <span class="ion-hide-sm-down">{{ messageService.get('var', 'letters') }}&nbsp;</span> {{ messageService.get('var', 'absents') }}
+                </ion-button>
+                <ion-button color="primary" size="small" class="ion-no-margin"
+                    (click)="speakLettersByStatus('present')">
+                    <span class="ion-hide-sm-down">{{ messageService.get('var', 'letters') }}&nbsp;</span> {{ messageService.get('var', 'presents') }}
+                </ion-button>
+                <ion-button color="primary" size="small" class="ion-no-margin"
+                    (click)="speakLettersByStatus('correct')">
+                    <span class="ion-hide-sm-down">{{ messageService.get('var', 'letters') }}&nbsp;</span> {{ messageService.get('var', 'corrects') }}
+                </ion-button>
+            </section>
+
             <section class="mt-2" *ngIf="guesses.length">
                 <h2>Riassunto tentativi</h2>
 
-                <div class="results">
+                <div class="guesses-buttons">
                     <div *ngFor="let guess of guesses; index as i;">
                         <app-status-button
                             [guess]="guess"

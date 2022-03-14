@@ -27,6 +27,15 @@ export const MESSAGES = {
         repeat: ' ripeti ',
         successEnd: ' Hai vinto, evviva!',
         failEnd: ' Hai perso, spiaze…',
+        absents: ' assenti ',
+        presents: ' presenti ',
+        corrects: ' corrette ',
+        absentLettersSummary: ' riepilogo lettere assenti ',
+        presentLettersSummary: ' riepilogo lettere presenti ',
+        correctLettersSummary: ' riepilogo lettere corrette ',
+        absentLettersSummaryEmpty: ' la lista delle lettere assenti è vuota ',
+        presentLettersSummaryEmpty: ' la lista delle lettere presenti è vuota ',
+        correctLettersSummaryEmpty: ' la lista delle lettere corrette è vuota ',
     },
 
     statuses: {

@@ -23,6 +23,11 @@ export class AppComponent implements AfterViewInit {
   public guessesStatuses = [];
   public attempts = 6;
   public endMessage = '';
+  private letterStatuses = {
+    absent: [],
+    present: [],
+    correct: [],
+  };
 
   constructor(
     private toastController: ToastController,
@@ -94,6 +99,9 @@ export class AppComponent implements AfterViewInit {
       this.speakService.speak(MESSAGES.var.letter);
       this.speakService.speak(status.letter);
       this.speakService.speak(MESSAGES.statuses[status.key]);
+      if (!this.letterStatuses[status.key].includes(status.letter)) {
+        this.letterStatuses[status.key].push(status.letter);
+      }
     });
 
     if (this.wordsService.isWinningWord(this.currentWord)) {
@@ -102,7 +110,7 @@ export class AppComponent implements AfterViewInit {
       this.speakService.speak(MESSAGES.var.successEnd);
       return;
     } else {
-      this.speakService.repeat(this.currentWord, statuses);
+      this.speakService.repeatWord(this.currentWord, statuses);
       if (this.guesses.length < this.attempts) {
         this.speakService.speak(MESSAGES.var.retry);
       }
@@ -115,6 +123,18 @@ export class AppComponent implements AfterViewInit {
       this.speakService.speak(MESSAGES.var.ended);
       this.endMessage = MESSAGES.var.failEnd;
     }
+  }
+
+  public speakLettersByStatus(status: string) {
+    if (!this.letterStatuses[status].length) {
+      this.speakService.speak(MESSAGES.var[status + 'LettersSummaryEmpty']);
+      return;
+    }
+
+    this.speakService.speak(MESSAGES.var[status + 'LettersSummary']);
+    this.letterStatuses[status].forEach(letter => {
+      this.speakService.speak(letter);
+    });
   }
 
   private updateGuesses(statuses) {

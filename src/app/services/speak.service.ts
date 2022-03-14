@@ -31,7 +31,7 @@ export class SpeakService {
   public async speak(
     text: string = '',
     voice?: SpeechSynthesisVoice,
-    rate: number = .9,
+    rate: number = 1.1,
   ): Promise<void> {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'it-IT';
@@ -45,7 +45,7 @@ export class SpeakService {
     utterance.onend = () => true;
   }
 
-  public repeat(word: string, statuses: Array<any>) {
+  public repeatWord(word: string, statuses: Array<any>) {
     this.speak(MESSAGES.var.iRepeat + word);
     statuses.forEach(status => {
       this.speak(MESSAGES.statuses[status.key]);

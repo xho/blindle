@@ -31,7 +31,20 @@ ion-item {
     }
 }
 
-.results {
+.letters-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .5rem;
+    @media (max-width: 520px) {
+        gap: .25rem;
+    }
+    ion-button {
+        min-height: 3rem;
+        text-transform: uppercase;
+    }
+}
+
+.guesses-buttons {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: .5rem;
