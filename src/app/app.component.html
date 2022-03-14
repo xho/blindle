@@ -4,7 +4,7 @@
             <ion-toolbar>
                 <ion-title>
                     BLINDLE
-                    <ion-note>#{{ wordsService.getSolutionMeta().index }} • {{ wordsService.getSolutionMeta().date }}</ion-note>
+                    <ion-note class="block">#{{ wordsService.getSolutionMeta().index }} • {{ wordsService.getSolutionMeta().date }}</ion-note>
                 </ion-title>
             </ion-toolbar>
         </ion-header>
@@ -77,11 +77,15 @@
 
             <section class="mt-2">
                 <ion-note color="white">
+                    La parola nascosta cambia alla mezzanotte di ogni giorno.
+                </ion-note>
+                <ion-note color="white">
                     Blindle è un'implementazione del gioco “parolette” per ipovedenti e non vedenti: l'inserimento della parola e i suggerimenti per trovare la soluzione sono pronunciati da un sistema di sintesi vocale (quindi alza il volume).
                 </ion-note>
+                <ion-note color="dark">Questa applicazione web non usa cookie.</ion-note>
 
                 <!-- ONLY ON IOS -->
-                <div class="note" *ngIf="platform.is('ios')">
+                <div class="colophon" *ngIf="platform.is('ios')">
                     <ion-text color="warning">
                         Nota: sui dispositivi Apple, la lingua della sintesi vocale non puà essere impostata in italiano se quella di sistema è differente.
                     </ion-text>
@@ -89,7 +93,6 @@
             </section>
 
             <section class="mt-2">
-                <ion-note color="dark" class="block">Blindle non usa cookie</ion-note>
                 <ion-note class="block">2022 MIT lic. - Blindle è un progetto open source da <a href="https://twitter.com/xho" target="_blank">@xho</a></ion-note>
             </section>
         </main>

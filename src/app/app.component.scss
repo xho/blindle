@@ -1,13 +1,19 @@
 ion-toolbar {
-    --min-height: 64px;
-    ion-note {
-        display: block;
-    }
+    --padding-top: .5rem;
+    --padding-bottom: .5rem;
 }
 
 section {
     @media (min-width: 768px) {
         padding: 0 1rem;
+    }
+
+    ion-note {
+        display: block;
+        line-height: 1.5;
+        & ~ ion-note {
+            margin-top: .5rem;
+        }
     }
 }
 
