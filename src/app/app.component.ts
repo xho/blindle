@@ -26,7 +26,6 @@ export class AppComponent implements AfterViewInit {
   public letterStatuses = {
     absent: [],
     present: [],
-    correct: [],
   };
 
   constructor(
@@ -98,9 +97,10 @@ export class AppComponent implements AfterViewInit {
     statuses.forEach(letterStatus => {
       this.speakService.speak(MESSAGES.var.letter + ', ' + letterStatus.letter);
       this.speakService.speak(MESSAGES.statuses[letterStatus.status]);
-      if (!this.letterStatuses[letterStatus.status].includes(letterStatus.letter)) {
+      if (!this.letterStatuses[letterStatus.status]?.includes(letterStatus.letter)) {
         const l = letterStatus.letter.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        this.letterStatuses[letterStatus.status].push(l);
+        const key = (letterStatus.status === 'absent')? 'absent' : 'present';
+        this.letterStatuses[key].push(l);
       }
     });
 
