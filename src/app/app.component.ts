@@ -96,8 +96,7 @@ export class AppComponent implements AfterViewInit {
     // OK HOW IS GONE?
     const statuses = this.wordsService.testWord(this.currentWord);
     statuses.forEach(letterStatus => {
-      this.speakService.speak(MESSAGES.var.letter);
-      this.speakService.speak(letterStatus.letter);
+      this.speakService.speak(MESSAGES.var.letter + ', ' + letterStatus.letter);
       this.speakService.speak(MESSAGES.statuses[letterStatus.status]);
       if (!this.letterStatuses[letterStatus.status].includes(letterStatus.letter)) {
         const l = letterStatus.letter.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');

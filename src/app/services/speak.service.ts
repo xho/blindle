@@ -31,7 +31,7 @@ export class SpeakService {
   public async speak(
     text: string = '',
     voice?: SpeechSynthesisVoice,
-    rate: number = 1.1,
+    rate: number = 1.2,
   ): Promise<void> {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'it-IT';
