@@ -10,6 +10,7 @@ import { it } from 'date-fns/locale';
 export class WordsService {
 
   private solution: string;
+  private currentDate = Date.now();
 
   constructor() {
     this.solution = this.getWordOfDay();
@@ -82,7 +83,7 @@ export class WordsService {
 
   public solutionMeta() {
     return {
-      date: format(new Date(), 'd MMMM yyyy', { locale: it }),
+      date: format(this.currentDate, 'd MMMM yyyy', { locale: it }),
       index: this.getTodayIndex() + 1,
       total: WORDS.length,
     };
@@ -99,7 +100,7 @@ export class WordsService {
 
   private getTodayIndex = () => {
     const epochMs = 1641942000000; // init January 12, 2022 CET
-    const now = Date.now();
+    const now = this.currentDate;
     const msInDay = 86400000;
     return Math.floor((now - epochMs) / msInDay);
   };
