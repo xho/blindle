@@ -52,15 +52,18 @@ export class ShareButtonComponent implements OnInit {
     text += `\n${this.wordsService.solutionMeta().date}\n\n`;
 
     this.guessesStatuses.forEach(guess => {
-      guess.forEach(entry => {
+      guess.forEach((entry: any, i: number) => {
+        if (i !== 0) {
+          text += ' ';
+        }
         if (entry.status === 'absent') {
-          (text += ' NO ');
+          text += 'NO';
         }
         if (entry.status === 'present') {
-          (text += ' NI ');
+          text += 'NI';
         }
         if (entry.status === 'correct') {
-          (text += ' SI ');
+          text += 'SI';
         }
       });
 

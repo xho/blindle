@@ -1,5 +1,6 @@
 <ion-button size="large" class="m-0"
     title="Condividi il risultato"
+    [color]="isCopied? 'warning' : 'primary'"
+    [innerHtml]="isCopied? '&nbsp;copiato&nbsp;' : 'Condividi'"
     (click)="share()">
-    Condividi
 </ion-button>
