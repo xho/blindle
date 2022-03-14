@@ -64,6 +64,7 @@
                             [status]="guessesStatuses[i]"
                             [title]="messageService.get('var', 'repeat')"></app-status-button>
                     </div>
+                    <div *ngFor="let i of [].constructor(6 - guesses.length)" aria-hidden="true"></div>
                 </div>
 
                 <div class="mt-05">

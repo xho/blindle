@@ -51,6 +51,17 @@ ion-item {
     @media (max-width: 520px) {
         gap: .25rem;
     }
+
+    > div:empty {
+        &:before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;;
+        }
+    }
 }
 
 .end-message {
