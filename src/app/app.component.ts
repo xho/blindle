@@ -23,7 +23,7 @@ export class AppComponent implements AfterViewInit {
   public guessesStatuses = [];
   public attempts = 6;
   public endMessage = '';
-  private letterStatuses = {
+  public letterStatuses = {
     absent: [],
     present: [],
     correct: [],
@@ -100,7 +100,8 @@ export class AppComponent implements AfterViewInit {
       this.speakService.speak(status.letter);
       this.speakService.speak(MESSAGES.statuses[status.key]);
       if (!this.letterStatuses[status.key].includes(status.letter)) {
-        this.letterStatuses[status.key].push(status.letter);
+        const l = status.letter.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        this.letterStatuses[status.key].push(l);
       }
     });
 
@@ -132,7 +133,7 @@ export class AppComponent implements AfterViewInit {
     }
 
     this.speakService.speak(MESSAGES.var[status + 'LettersSummary']);
-    this.letterStatuses[status].forEach(letter => {
+    this.letterStatuses[status].forEach((letter: string) => {
       this.speakService.speak(letter);
     });
   }
