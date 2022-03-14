@@ -125,13 +125,14 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
-  public speakLettersByStatus(status: string) {
+  public sayLettersByStatus(status: string) {
     if (!this.letterStatuses[status].length) {
       this.speakService.speak(MESSAGES.var[status + 'LettersSummaryEmpty']);
       return;
     }
 
     this.speakService.speak(MESSAGES.var[status + 'LettersSummary']);
+    this.speakService.speak(MESSAGES.var[status + 'Are'] + this.letterStatuses[status].length + MESSAGES.var.letters);
     this.letterStatuses[status].forEach((letter: string) => {
       this.speakService.speak(letter);
     });
