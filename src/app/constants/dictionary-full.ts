@@ -5340,7 +5340,6 @@ export const WORDS = [
 'prete',
 'preti',
 'previ',
-'price',
 'pride',
 'prima',
 'prime',
