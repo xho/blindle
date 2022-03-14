@@ -40,7 +40,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   async ngAfterViewInit(): Promise<void> {
-    this.ionInput.setFocus();
+    this.ionInput?.setFocus();
     const init = await this.speakService.init();
     if (!init) {
       const message = MESSAGES.errors.speechSynthesisUnsupported;
