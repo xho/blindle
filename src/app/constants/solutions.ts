@@ -58,7 +58,6 @@ export const SOLUTIONS = [
   'atrio',
   'peone',
   'aglio',
-  'aglio',
   'palmo',
   'apice',
   'monte',
