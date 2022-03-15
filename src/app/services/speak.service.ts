@@ -40,8 +40,10 @@ export class SpeakService {
     }
     utterance.rate = rate;
 
-    this.window.speechSynthesis.speak(utterance);
-    utterance.onend = () => true;
+    await new Promise(resolve => {
+      utterance.onend = resolve;
+      this.window.speechSynthesis.speak(utterance);
+    });
   }
 
   public repeatWord(word: string, statuses: Array<any>) {
