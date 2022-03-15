@@ -68,8 +68,6 @@ export class AppComponent implements AfterViewInit {
     if (!result) {
       this.speakService.speak(e.key);
       this.speakService.speak(MESSAGES.errors.letterIsNotValid);
-    } else {
-      this.speakService.speak(e.key);
     }
   }
 
