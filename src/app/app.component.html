@@ -4,7 +4,7 @@
             <ion-toolbar>
                 <ion-title>
                     BLINDLE
-                    <ion-note class="block">#{{ wordsService.getSolutionMeta().index }} • {{ wordsService.getSolutionMeta().date }}</ion-note>
+                    <ion-note class="block" [color]="isExpired? 'warning' : ''">#{{ wordsService.getSolutionMeta().index }} • {{ wordsService.getSolutionMeta().date }}</ion-note>
                 </ion-title>
             </ion-toolbar>
         </ion-header>

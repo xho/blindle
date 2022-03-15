@@ -3,6 +3,7 @@ import { IonInput, ToastController, Platform } from '@ionic/angular';
 import { SpeakService } from './services/speak.service';
 import { WordsService } from './services/words.service';
 import { MessageService } from './services/message.service';
+import { DateChangeService } from './services/date-change.service';
 // import { GuessService } from './services/guess.service';
 
 import { MESSAGES } from './constants/messages';
@@ -27,15 +28,22 @@ export class AppComponent implements AfterViewInit {
     absent: [],
     present: [],
   };
+  public isExpired = false;
 
   constructor(
     private toastController: ToastController,
+    private dateChangeService: DateChangeService,
     private speakService: SpeakService,
     public wordsService: WordsService,
     public messageService: MessageService,
     public platform: Platform,
   ) {
-
+    this.dateChangeService.todayExpired$.subscribe(value => {
+      this.isExpired = value;
+      if (!value) {
+        this.reportExpired();
+      }
+    });
   }
 
   async ngAfterViewInit(): Promise<void> {
@@ -174,4 +182,25 @@ export class AppComponent implements AfterViewInit {
     await toast.present();
   }
 
+  private async reportExpired() {
+    const toast = await this.toastController.create({
+      message: 'Non stai giocando con la parola di oggi, ricarica per aggiornare',
+      icon: 'reload',
+      position: 'bottom',
+      color: 'warning',
+      buttons: [
+        {
+          text: 'Ignora',
+          role: 'cancel',
+          handler: () => { }
+        }, {
+          text: 'Ricarica',
+          handler: () => {
+            window.location.reload();
+          }
+        }
+      ]
+    });
+    await toast.present();
+  }
 }
