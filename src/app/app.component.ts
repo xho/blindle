@@ -51,7 +51,7 @@ export class AppComponent implements AfterViewInit {
   }
 
 
-  public onKeyPress(e: KeyboardEvent): void {
+  public onKeyPress(e): void {
     if (e.code === 'Enter') {
       this.try();
       return;
