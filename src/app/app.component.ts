@@ -51,27 +51,26 @@ export class AppComponent implements AfterViewInit {
   }
 
 
-  public onKeyPress(e: KeyboardEvent) {
-   if (e.code === 'Enter') {
-    this.try();
-    return;
-   }
+  public onKeyPress(e: KeyboardEvent): void {
+    if (e.code === 'Enter') {
+      this.try();
+      return;
+    }
 
-   if (this.currentWord.length === 5) {
-    this.speakService.speak(MESSAGES.errors.wordIsMaxLength);
-    return;
-   }
+    // text could be selected for overwrite
+    if (document.getSelection().toString().toLowerCase() !== this.currentWord.toLowerCase() && this.currentWord.length === 5) {
+      this.speakService.speak(MESSAGES.errors.wordIsMaxLength);
+      return;
+    }
 
-   const pattern = /^[A-zÀ-ÿ]+$/i;
-   const result = pattern.test(e.key);
-   if (!result) {
-    this.speakService.speak(e.key);
-    this.speakService.speak(MESSAGES.errors.letterIsNotValid);
-   } else {
-    this.speakService.speak(e.key);
-   }
-
-   return result;
+    const pattern = /^[A-zÀ-ÿ]+$/i;
+    const result = pattern.test(e.key);
+    if (!result) {
+      this.speakService.speak(e.key);
+      this.speakService.speak(MESSAGES.errors.letterIsNotValid);
+    } else {
+      this.speakService.speak(e.key);
+    }
   }
 
   public async try() {
