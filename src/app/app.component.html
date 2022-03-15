@@ -83,7 +83,7 @@
                     Blindle è un'implementazione del gioco “parolette” per ipovedenti e non vedenti: l'inserimento della parola e i suggerimenti per trovare la soluzione sono pronunciati da un sistema di sintesi vocale (quindi alza il volume).
                 </ion-note>
                 <!-- ONLY ON IOS -->
-                <ion-note color="warning" *ngIf="!platform.is('ios')">
+                <ion-note color="warning" *ngIf="platform.is('ios')">
                     Nota: sui dispositivi Apple, la lingua della sintesi vocale non può essere impostata in italiano se quella di sistema è differente.
                 </ion-note>
             </section>
