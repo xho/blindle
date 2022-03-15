@@ -6,6 +6,9 @@
         padding: 1.5rem 1rem;
     }
 }
+.ios .main-container {
+    padding: 0 1rem;
+}
 
 .block {
     display: block;
@@ -18,3 +21,7 @@
 .my-2 { margin-top: 2rem; margin-bottom: 2rem; }
 .mt-2 { margin-top: 2rem; }
 .mb-2 { margin-top: 2rem; }
+
+.px-1 { padding-left: 1rem; padding-right: 1rem; }
+.pl-1 { padding-left: 1rem; }
+.pr-1 { padding-right: 1rem; }

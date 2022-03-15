@@ -1,8 +1,8 @@
 <ion-app>
     <ion-content>
         <ion-header collapse="fade" class="ion-no-border">
-            <ion-toolbar>
-                <ion-title>
+            <ion-toolbar mode="md">
+                <ion-title slot="start">
                     BLINDLE
                     <ion-note class="block" [color]="isExpired? 'warning' : ''">#{{ wordsService.getSolutionMeta().index }} • {{ wordsService.getSolutionMeta().date }}</ion-note>
                 </ion-title>
@@ -28,7 +28,7 @@
 
             <section class="mt-2 end-message" *ngIf="endMessage">
                 <ion-item lines="none">
-                    <ion-label class="ion-text-capitalize" [color]="guesses[guesses.length - 1].status == 'correct'? 'success' : ''">{{ endMessage }}</ion-label>
+                    <ion-label [color]="guesses[guesses.length - 1].status == 'correct'? 'success' : ''">{{ endMessage }}</ion-label>
                 </ion-item>
                 <app-share-button
                     [guessesStatuses]="guessesStatuses"
