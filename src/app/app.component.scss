@@ -39,13 +39,6 @@ ion-item {
     }
 }
 
-.word-input {
-    margin-top: 1.5rem;
-    @media (min-width: 768px) {
-        margin-top: 2rem;
-    }
-}
-
 .letters-buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
