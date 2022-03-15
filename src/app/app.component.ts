@@ -40,7 +40,7 @@ export class AppComponent implements AfterViewInit {
   ) {
     this.dateChangeService.todayExpired$.subscribe(value => {
       this.isExpired = value;
-      if (!value) {
+      if (value) {
         this.reportExpired();
       }
     });
