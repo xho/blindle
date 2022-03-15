@@ -13,17 +13,18 @@ export class SpeakService {
   ) { }
 
   async init(): Promise<boolean> {
-    if ('onvoiceschanged' in speechSynthesis) {
-      const awaitVoices = new Promise(done => window.speechSynthesis.onvoiceschanged = done);
-      await awaitVoices;
-    }
-
-    const voices = window.speechSynthesis.getVoices();
-    const italianVoices = voices.filter(voice => voice.lang === 'it-IT');
-    if (!italianVoices.length) {
+    if (!this.window.speechSynthesis) {
       return false;
     }
+    if ('onvoiceschanged' in this.window.speechSynthesis) {
+      const awaitVoices = new Promise(done => this.window.speechSynthesis.onvoiceschanged = done);
+      await awaitVoices;
+      console.log('wait');
+    }
 
+    const voices = this.window.speechSynthesis.getVoices();
+    console.log(voices);
+    const italianVoices = voices.filter(voice => voice.lang === 'it-IT');
     this.voice = italianVoices[1];
     return true;
   }
@@ -41,7 +42,7 @@ export class SpeakService {
     }
     utterance.rate = rate;
 
-    window.speechSynthesis.speak(utterance);
+    this.window.speechSynthesis.speak(utterance);
     utterance.onend = () => true;
   }
 
