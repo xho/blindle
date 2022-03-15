@@ -19,11 +19,9 @@ export class SpeakService {
     if ('onvoiceschanged' in this.window.speechSynthesis) {
       const awaitVoices = new Promise(done => this.window.speechSynthesis.onvoiceschanged = done);
       await awaitVoices;
-      console.log('wait');
     }
 
     const voices = this.window.speechSynthesis.getVoices();
-    console.log(voices);
     const italianVoices = voices.filter(voice => voice.lang === 'it-IT');
     this.voice = italianVoices[1];
     return true;
