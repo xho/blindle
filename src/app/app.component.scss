@@ -1,6 +1,8 @@
 ion-toolbar {
     --padding-top: .5rem;
     --padding-bottom: .5rem;
+    --ion-safe-area-top: .5rem;
+    padding-bottom: var(--padding-bottom);
 }
 
 section {
