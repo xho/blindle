@@ -40,6 +40,14 @@ h2 {
   font-size: 1.25rem;
 }
 
-.colophon {
+hr {
+  margin: 1rem 0;
+  color: inherit;
+  background-color: currentColor;
+  border: 0;
+  opacity: 0.25;
+}
+
+small {
   font-size: .75rem;
 }

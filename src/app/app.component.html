@@ -77,18 +77,19 @@
                     In questo gioco devi indovinare una parola di cinque lettere in sei tentativi.
                     La parola nascosta cambia alla mezzanotte di ogni giorno.
                 </ion-note>
+                <hr>
                 <ion-note color="white">
                     Blindle è un'implementazione del gioco “parolette” per ipovedenti e non vedenti: l'inserimento della parola e i suggerimenti per trovare la soluzione sono pronunciati da un sistema di sintesi vocale (quindi alza il volume).
                 </ion-note>
                 <!-- ONLY ON IOS -->
                 <ion-note color="warning" *ngIf="platform.is('ios')">
-                    Nota: sui dispositivi Apple, la lingua della sintesi vocale non può essere impostata in italiano se quella di sistema è differente.
+                    Nota: sui Apple iPhone e iPad, la lingua della sintesi vocale non può essere impostata in italiano se quella di sistema è diversa.
                 </ion-note>
             </section>
 
-            <section class="mt-2">
-                <small color="dark">Questa applicazione web non usa cookie</small>
-                <ion-note class="block">2022 MIT lic. - Blindle è un progetto open source da <a href="https://twitter.com/xho" target="_blank">@xho</a></ion-note>
+            <section class="mt-1">
+                <small class="block">Questa applicazione web non usa cookie</small>
+                <small>2022 MIT lic. - Blindle è un progetto open source da <a href="https://twitter.com/xho" target="_blank">@xho</a></small>
             </section>
         </main>
     </ion-content>
