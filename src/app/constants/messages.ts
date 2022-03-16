@@ -5,6 +5,7 @@ export const MESSAGES = {
         'Tentativo numero 2',
         'Tentativo numero 3',
         'Tentativo numero 4',
+        'Tentativo numero 5',
         'Ultimo tentativo',
     ],
 
