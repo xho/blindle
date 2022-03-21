@@ -8,7 +8,8 @@ import { endOfToday } from 'date-fns';
 export class DateChangeService {
 
   public tomorrow = endOfToday().getTime();
-  public todayExpired$ = new BehaviorSubject(false);;
+  public todayExpired$ = new BehaviorSubject(false);
+
   constructor() {
     setInterval(() => {
       if (Date.now() > this.tomorrow) {
@@ -16,4 +17,5 @@ export class DateChangeService {
       }
     }, 2000);
   }
+
 }
