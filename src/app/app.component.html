@@ -28,7 +28,7 @@
 
             <section class="mt-2 end-message" *ngIf="endMessage">
                 <ion-item lines="none">
-                    <ion-label [color]="guesses[guesses.length - 1].status == 'correct'? 'success' : ''">{{ endMessage }}</ion-label>
+                    <ion-label [color]="guesses[guesses.length - 1].status === 'correct'? 'success' : ''">{{ endMessage }}</ion-label>
                 </ion-item>
                 <app-share-button
                     [guessesStatuses]="guessesStatuses"
