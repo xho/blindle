@@ -262,7 +262,7 @@ export const SOLUTIONS = [
   'pazzo',
   'randa',
   'bazar',
-  'bidet',
+  'crisi',
   'bambu',
   'icona',
   'pippa',
