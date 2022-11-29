@@ -1560,6 +1560,7 @@ export const WORDS = [
   'rateo',
   'razzo',
   'rebus',
+  'regia',
   'reita',
   'relax',
   'renio',
