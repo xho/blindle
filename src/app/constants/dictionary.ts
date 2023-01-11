@@ -820,6 +820,7 @@ export const WORDS = [
   'coati',
   'coffa',
   'colmo',
+  'colpo',
   'colon',
   'colza',
   'comma',

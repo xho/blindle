@@ -656,6 +656,7 @@ export const SOLUTIONS = [
   'rullo',
   'fosso',
   'vetta',
+  'colpo',
   'verme',
   'crepa',
   'mezzo',
